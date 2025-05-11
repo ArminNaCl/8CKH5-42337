@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'rest_framework',
+    'drf_spectacular',
+    # 'drf_spectacular_sidecar',
+    
+    'core',
+    'restaurant',
 ]
 
 MIDDLEWARE = [
@@ -65,6 +74,17 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Booking API',
+    'DESCRIPTION': 'API for booking by authenticated users.',
+    'VERSION': '1.0.0',
+}
+
 
 WSGI_APPLICATION = 'pars_tasmim.wsgi.application'
 
