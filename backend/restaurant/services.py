@@ -80,7 +80,7 @@ class ReserveService:
             amount = table.price * (table.capacity - 1)
         else:
             number_of_seats = number_of_people
-            amount = number_of_people * table.capacity
+            amount = number_of_people * table.price
 
         return Reserve.objects.create(
             table_id=table.id,
